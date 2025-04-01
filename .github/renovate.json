@@ -24,9 +24,6 @@
         "matchPaths": ["**/__fixtures__/**"],
         "enabled": false
       }
-    ],
-    "prHourlyLimit": 4, 
-    "prCreation": "immediate", 
-    "rangeStrategy": "increase"
+    ]
   }
   
