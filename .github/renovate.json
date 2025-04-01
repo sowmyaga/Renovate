@@ -13,8 +13,8 @@
   },
 "timezone": "Asia/Kolkata",
   "rangeStrategy": "bump",
-  "prHourlyLimit": 10,
-  "prConcurrentLimit": 10,
+  "prHourlyLimit": 20,
+  "prConcurrentLimit": 20,
   "baseBranches": ["main"], 
   "commitMessagePrefix": "",
   "commitMessageTopic": "{{packageName}} v{{currentVersion}}",
@@ -40,6 +40,18 @@
             "matchPackageNames": ["/*/"],
             "groupName": "all major dependencies",
             "groupSlug": "all-major"
+          },
+          {
+            "description": "This configuration will ensure certain crucial packages are never auto-merged, even for minor or patch updates.",
+            "automerge": false,
+            "depTypes": ["dependencies", "devDependencies"],
+            "matchPackageNames": [
+              "@reduxjs/toolkit", 
+              "typescript",
+              "babel-loader"
+            ],
+            "groupName": "critical packages",
+            "groupSlug": "critical-packages"
           }
 
     ]
