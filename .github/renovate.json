@@ -1,7 +1,7 @@
 {
     "$schema": "https://docs.renovatebot.com/renovate-schema.json",
     "extends": ["github>renovatebot/.github"],
-    "assignees": ["sowmyaga"],
+    "assignees": ["rarkins", "viceice"],
     "semanticCommitScope": "deps",
     "automergeType": "pr",
     "prCreation": "immediate",
@@ -29,6 +29,9 @@
         "matchPaths": ["**/__fixtures__/**"],
         "enabled": false
       }
-    ]
+    ],
+    "prHourlyLimit": 1, 
+    "batchSize": 5, 
+    "rangeStrategy": "increase"
   }
   
