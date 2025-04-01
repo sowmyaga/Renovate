@@ -1,0 +1,26 @@
+{
+  "name": "renovate-test-repo",
+  "version": "1.0.0",
+  "description": "A repository to test Renovate bot functionality",
+  "main": "index.js",
+  "dependencies": {
+    "axios": "^0.21.0",
+    "lodash": "^4.17.15",
+    "express": "^4.17.1",
+    "moment": "^2.24.0",
+    "chalk": "^4.1.0",
+    "uuid": "^3.4.0",
+    "request": "^2.88.2",
+    "jquery": "^3.5.0",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  },
+  "devDependencies": {
+    "jest": "^24.9.0",
+    "babel-cli": "^6.26.0",
+    "webpack": "^4.41.5"
+  },
+  "engines": {
+    "node": ">=10.0.0"
+  }
+}
