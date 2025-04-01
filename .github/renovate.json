@@ -11,47 +11,61 @@
   "dockerfile": {
     "semanticCommitType": "build"
   },
-"timezone": "Asia/Kolkata",
+  "timezone": "Asia/Kolkata",
   "rangeStrategy": "bump",
   "prHourlyLimit": 20,
   "prConcurrentLimit": 20,
-  "baseBranches": ["main"], 
+  "baseBranches": [
+    "main"
+  ],
   "commitMessagePrefix": "",
   "commitMessageTopic": "{{packageName}} v{{currentVersion}}",
   "prCreation": "immediate",
-  "reviewers": [ "sowmyaga"],
-    "packageRules": [
-        {
-            "description": "This configuration will create dedicated MR for each dependency with breaking changes. These MR will not be auto-merged by renovate Chimera Bot and need to be validated and merged by the selected reviewers",
-            "depTypes": ["dependencies","devDependencies"],
-            "matchPackageNames": ["/*/"],
-            "matchUpdateTypes": ["major","pin", "pinDigest", "digest", "lockFileMaintenance", "rollback", "bump", "replacement"]
-          },
-          {      
-            "description": "This configuration will group minor updates and patches in a single MR. This MR will be auto-merged by renovate Chimera Bot and do not need approval or validation by the selected reviewers",
-            "automerge": true,
-            "automergeType": "branch",
-            "automergeStrategy": "auto",
-            "depTypes": ["dependencies","devDependencies"],
-            "matchUpdateTypes": ["minor", "patch"],
-            "matchPackageNames": ["/*/"],
-            "groupName": "all non-major dependencies",
-            "groupSlug": "all-minor-patch"
-          },      
-        
-          {
-            "description": "This configuration will ensure certain crucial packages are never auto-merged, even for minor or patch updates.",
-            "automerge": false,
-            "depTypes": ["dependencies", "devDependencies"],
-            "matchPackageNames": [
-              "@reduxjs/toolkit", 
-              "typescript",
-              "babel-loader"
-            ],
-            "groupName": "critical packages",
-            "groupSlug": "critical-packages"
-          }
-
-    ]
-  }
-  
+  "reviewers": [
+    "sowmyaga"
+  ],
+  "packageRules": [
+    {
+      "description": "This configuration will create dedicated MR for each dependency with breaking changes. These MR will not be auto-merged by renovate Chimera Bot and need to be validated and merged by the selected reviewers",
+      "matchPackageNames": [
+        "/*/"
+      ],
+      "matchUpdateTypes": [
+        "major",
+        "pin",
+        "pinDigest",
+        "digest",
+        "lockFileMaintenance",
+        "rollback",
+        "bump",
+        "replacement"
+      ]
+    },
+    {
+      "description": "This configuration will group minor updates and patches in a single MR. This MR will be auto-merged by renovate Chimera Bot and do not need approval or validation by the selected reviewers",
+      "automerge": true,
+      "automergeType": "branch",
+      "automergeStrategy": "auto",
+      "matchUpdateTypes": [
+        "minor",
+        "patch"
+      ],
+      "matchPackageNames": [
+        "/*/"
+      ],
+      "groupName": "all non-major dependencies",
+      "groupSlug": "all-minor-patch"
+    },
+    {
+      "description": "This configuration will ensure certain crucial packages are never auto-merged, even for minor or patch updates.",
+      "automerge": false,
+      "matchPackageNames": [
+        "@reduxjs/toolkit",
+        "typescript",
+        "babel-loader"
+      ],
+      "groupName": "critical packages",
+      "groupSlug": "critical-packages"
+    }
+  ]
+}
