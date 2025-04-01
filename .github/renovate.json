@@ -1,25 +1,20 @@
 {
     "$schema": "https://docs.renovatebot.com/renovate-schema.json",
     "extends": ["github>renovatebot/.github"],
-    "assignees": ["rarkins", "viceice"],
+    "assignees": ["sowmyaga"],
     "semanticCommitScope": "deps",
     "automergeType": "pr",
-    "prCreation": "immediate",
     "dockerfile": {
       "semanticCommitType": "build"
     },
     "packageRules": [
       {
+        "matchDepTypes": ["dependencies", "devDependencies"],
+        "groupName": "all dependencies"
+      },
+      {
         "matchPackageNames": ["containerbase/node"],
         "versioning": "node"
-      },
-      {
-        "matchDepTypes": ["dependencies"],
-        "semanticCommitType": "build"
-      },
-      {
-        "matchPackageNames": ["semantic-release"],
-        "semanticCommitType": "build"
       },
       {
         "matchPackageNames": ["@types/jest"],
@@ -30,8 +25,8 @@
         "enabled": false
       }
     ],
-    "prHourlyLimit": 1, 
-    "batchSize": 5, 
+    "prHourlyLimit": 4, 
+    "prCreation": "immediate", 
     "rangeStrategy": "increase"
   }
   
