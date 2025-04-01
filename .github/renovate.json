@@ -22,18 +22,22 @@
   "reviewers": [ "sowmyaga"],
     "packageRules": [
         {
-            "description": "This configuration will group all minor updates and patches in a single MR. This MR will be auto-merged by Renovate Chimera Bot and do not need approval or validation by the selected reviewers.",
-            "automerge": false,
+            "description": "This configuration will create dedicated MR for each dependency with breaking changes. These MR will not be auto-merged by renovate Chimera Bot and need to be validated and merged by the selected reviewers",
+            "depTypes": ["dependencies","devDependencies"],
+            "matchPackageNames": ["/*/"],
+            "matchUpdateTypes": ["major","pin", "pinDigest", "digest", "lockFileMaintenance", "rollback", "bump", "replacement"]
+          },
+          {      
+            "description": "This configuration will group minor updates and patches in a single MR. This MR will be auto-merged by renovate Chimera Bot and do not need approval or validation by the selected reviewers",
+            "automerge": true,
             "automergeType": "branch",
             "automergeStrategy": "auto",
-            "depTypes": ["dependencies", "devDependencies"],
+            "depTypes": ["dependencies","devDependencies"],
             "matchUpdateTypes": ["minor", "patch"],
             "matchPackageNames": ["/*/"],
             "groupName": "all non-major dependencies",
-            "groupSlug": "all-minor-patch",
-            "updateInternalDeps": true
-                      
-          },
+            "groupSlug": "all-minor-patch"
+          },      
         
           {
             "description": "This configuration will ensure certain crucial packages are never auto-merged, even for minor or patch updates.",
