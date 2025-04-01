@@ -10,7 +10,7 @@
     "@apollo/client": "^3.13.4",
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.0",
-    "@reduxjs/toolkit": "^2.2.3",
+    "@reduxjs/toolkit": "^2.6.1",
     "@types/webfontloader": "^1.6.38",
     "@webxr-input-profiles/motion-controllers": "^1.0.0",
     "async-lock": "^1.2.4",
