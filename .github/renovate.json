@@ -1,12 +1,16 @@
 {
-    "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-    "extends": ["github>renovatebot/.github"],
-    "assignees": ["sowmyaga"],
-    "semanticCommitScope": "deps",
-    "automergeType": "pr",
-    "dockerfile": {
-      "semanticCommitType": "build"
-    },
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "github>renovatebot/.github"
+  ],
+  "assignees": [
+    "sowmyaga"
+  ],
+  "semanticCommitScope": "deps",
+  "automergeType": "pr",
+  "dockerfile": {
+    "semanticCommitType": "build"
+  },
     "packageRules": [
       {
         "matchDepTypes": ["dependencies", "devDependencies"],
