@@ -11,24 +11,37 @@
   "dockerfile": {
     "semanticCommitType": "build"
   },
+"timezone": "Asia/Kolkata",
+  "rangeStrategy": "bump",
+  "prHourlyLimit": 5,
+  "prConcurrentLimit": 5,
+  "baseBranches": ["main"], 
+  "commitMessagePrefix": "",
+  "commitMessageTopic": "{{packageName}} v{{currentVersion}}",
+  "prCreation": "immediate",
+  "reviewers": [ "sowmyaga"],
     "packageRules": [
-      {
-        "matchDepTypes": ["dependencies", "devDependencies"],
-        "groupName": "all dependencies",
-        "separateMultipleMajor": false
-      },
-      {
-        "matchPackageNames": ["containerbase/node"],
-        "versioning": "node"
-      },
-      {
-        "matchPackageNames": ["@types/jest"],
-        "groupName": "jest monorepo"
-      },
-      {
-        "matchPaths": ["**/__fixtures__/**"],
-        "enabled": false
-      }
+          {      
+            "description": "This configuration will group minor updates and patches in a single MR. This MR will be auto-merged by renovate Chimera Bot and do not need approval or validation by the selected reviewers",
+            "automerge": true,
+            "automergeType": "branch",
+            "automergeStrategy": "auto",
+            "depTypes": ["dependencies","devDependencies"],
+            "matchUpdateTypes": ["minor", "patch"],
+            "matchPackageNames": ["/*/"],
+            "groupName": "all non-major dependencies",
+            "groupSlug": "all-minor-patch"
+          },
+          {
+            "description": "This configuration will group all major updates in a single MR for easier validation",
+            "automerge": false,
+            "depTypes": ["dependencies", "devDependencies"],
+            "matchUpdateTypes": ["major","pin", "pinDigest", "digest", "lockFileMaintenance", "rollback", "bump", "replacement"],
+            "matchPackageNames": ["/*/"],
+            "groupName": "all major dependencies",
+            "groupSlug": "all-major"
+          }
+
     ]
   }
   
