@@ -29,7 +29,6 @@
         "matchPaths": ["**/__fixtures__/**"],
         "enabled": false
       }
-    ],
-    "minimumReleaseCount": 5
+    ]
   }
   
