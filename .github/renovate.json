@@ -1,29 +1,41 @@
 {
-    "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-    "extends": ["github>renovatebot/.github"],
-    "assignees": ["sowmyaga"],
-    "semanticCommitScope": "deps",
-    "automergeType": "pr",
-    "dockerfile": {
-      "semanticCommitType": "build"
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "github>renovatebot/.github"
+  ],
+  "assignees": [
+    "sowmyaga"
+  ],
+  "semanticCommitScope": "deps",
+  "automergeType": "pr",
+  "dockerfile": {
+    "semanticCommitType": "build"
+  },
+  "packageRules": [
+    {
+      "matchDepTypes": [
+        "dependencies",
+        "devDependencies"
+      ],
+      "groupName": "all dependencies"
     },
-    "packageRules": [
-      {
-        "matchDepTypes": ["dependencies", "devDependencies"],
-        "groupName": "all dependencies"
-      },
-      {
-        "matchPackageNames": ["containerbase/node"],
-        "versioning": "node"
-      },
-      {
-        "matchPackageNames": ["@types/jest"],
-        "groupName": "jest monorepo"
-      },
-      {
-        "matchPaths": ["**/__fixtures__/**"],
-        "enabled": false
-      }
-    ]
-  }
-  
+    {
+      "matchPackageNames": [
+        "containerbase/node"
+      ],
+      "versioning": "node"
+    },
+    {
+      "matchPackageNames": [
+        "@types/jest"
+      ],
+      "groupName": "jest monorepo"
+    },
+    {
+      "matchFileNames": [
+        "**/__fixtures__/**"
+      ],
+      "enabled": false
+    }
+  ]
+}
