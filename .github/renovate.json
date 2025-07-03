@@ -26,7 +26,7 @@
     },
     {
       "matchDepTypes": ["devDependencies"],
-      "extends": ["packages:storybook"],
+      "extends": ["monorepo:storybook"],
       "matchUpdateTypes": ["minor", "patch"],
       "groupName": "storybook packages"
     },
