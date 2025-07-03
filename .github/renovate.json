@@ -53,12 +53,7 @@
       "groupName": "dependencies (minor/patch)",
       "groupSlug": "deps-minor-patch",
       "schedule": ["at any time"],
-      "packageRules": [
-        {
-          "matchUpdateTypes": ["minor", "patch"],
-          "maxPackagesToUpdate": 5
-        }
-      ]
+      "size": 5
     },
     {      
       "description": "This configuration will group minor dev-dependencies updates and patches in a single MR.",
@@ -66,12 +61,7 @@
       "matchUpdateTypes": ["minor", "patch"],
       "groupName": "dev dependencies (non-major)",
       "groupSlug": "dev-deps-minor-patch",
-      "packageRules": [
-        {
-          "matchUpdateTypes": ["minor", "patch"],
-          "maxPackagesToUpdate": 5
-        }
-      ]
+      "size": 5
     }
   ],
   "timezone": "Asia/Kolkata",
