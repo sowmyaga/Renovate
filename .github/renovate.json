@@ -6,66 +6,119 @@
   "packageRules": [
     {
       "description": "This configuration will create dedicated MR for each dependency with breaking changes",
-      "matchDepTypes": ["dependencies"],
-      "matchUpdateTypes": ["major"],
+      "matchDepTypes": [
+        "dependencies"
+      ],
+      "matchUpdateTypes": [
+        "major"
+      ],
       "groupName": null
     },
     {
       "description": "This configuration will create dedicated MR for each devDependency with breaking changes",
-      "matchDepTypes": ["devDependencies"],
-      "matchUpdateTypes": ["major"],
+      "matchDepTypes": [
+        "devDependencies"
+      ],
+      "matchUpdateTypes": [
+        "major"
+      ],
       "groupName": null
     },
     {
-      "matchDepTypes": ["devDependencies"],
-      "extends": ["packages:eslint"],
-      "matchUpdateTypes": ["minor", "patch"],
+      "matchDepTypes": [
+        "devDependencies"
+      ],
+      "extends": [
+        "packages:eslint"
+      ],
+      "matchUpdateTypes": [
+        "minor",
+        "patch"
+      ],
       "groupName": "eslint packages"
     },
     {
-      "matchDepTypes": ["devDependencies"],
-      "extends": ["monorepo:storybook"],
-      "matchUpdateTypes": ["minor", "patch"],
+      "matchDepTypes": [
+        "devDependencies"
+      ],
+      "extends": [
+        "monorepo:storybook"
+      ],
+      "matchUpdateTypes": [
+        "minor",
+        "patch"
+      ],
       "groupName": "storybook packages"
     },
     {
       "groupName": "definitelyTyped",
-      "matchUpdateTypes": ["minor", "patch"],
+      "matchUpdateTypes": [
+        "minor",
+        "patch"
+      ],
       "matchPackageNames": [
         "@types/**"
       ]
     },
     {
-      "matchDepTypes": ["devDependencies"],
-      "extends": ["packages:vite"],
-      "matchUpdateTypes": ["minor", "patch"],
+      "matchDepTypes": [
+        "devDependencies"
+      ],
+      "extends": [
+        "packages:vite"
+      ],
+      "matchUpdateTypes": [
+        "minor",
+        "patch"
+      ],
       "groupName": "vite packages"
     },
     {
-      "matchDepTypes": ["devDependencies"],
-      "extends": ["group:babelMonorepo"],
-      "matchUpdateTypes": ["minor", "patch"],
+      "matchDepTypes": [
+        "devDependencies"
+      ],
+      "extends": [
+        "group:babelMonorepo"
+      ],
+      "matchUpdateTypes": [
+        "minor",
+        "patch"
+      ],
       "groupName": "babel packages"
     },
     {
-      "matchDepTypes": ["dependencies"],
-      "matchUpdateTypes": ["minor", "patch"],
+      "matchDepTypes": [
+        "dependencies"
+      ],
+      "matchUpdateTypes": [
+        "minor",
+        "patch"
+      ],
       "groupName": "dependencies (minor/patch)",
       "groupSlug": "deps-minor-patch",
       "pkgsPerGroup": 5
     },
-    {      
-      "matchDepTypes": ["devDependencies"],
-      "matchUpdateTypes": ["minor", "patch"],
+    {
+      "matchDepTypes": [
+        "devDependencies"
+      ],
+      "matchUpdateTypes": [
+        "minor",
+        "patch"
+      ],
       "groupName": "dev dependencies (non-major)",
       "groupSlug": "dev-deps-minor-patch",
       "pkgsPerGroup": 5,
-      "excludePackageNames": [
-        "@types/**",
-        "eslint", "eslint-*",
-        "storybook", "@storybook/*",
-        "vite", "@vite/*",
-        "@babel/*", "babel-*"
+      "matchPackageNames": [
+        "!@types/**",
+        "!eslint",
+        "!eslint-*",
+        "!storybook",
+        "!@storybook/*",
+        "!vite",
+        "!@vite/*",
+        "!@babel/*",
+        "!babel-*"
       ]
     }
   ],
@@ -73,15 +126,21 @@
   "rangeStrategy": "bump",
   "prHourlyLimit": 20,
   "prConcurrentLimit": 10,
-  "baseBranches": ["main"],
+  "baseBranches": [
+    "main"
+  ],
   "branchPrefix": "renovate/",
   "branchTopic": "{{ replace '/' '-' packageName}}-{{version}}",
   "branchNameStrict": true,
-  "schedule": ["at any time"],
+  "schedule": [
+    "at any time"
+  ],
   "minimumReleaseAge": "3 days",
   "commitMessagePrefix": "",
   "commitMessageTopic": "{{packageName}} v{{currentVersion}}",
   "prCreation": "immediate",
   "rebaseWhen": "auto",
-  "reviewers": ["sowmyaga"]
+  "reviewers": [
+    "sowmyaga"
+  ]
 }
