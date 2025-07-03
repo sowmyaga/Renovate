@@ -54,11 +54,17 @@
       "groupSlug": "deps-minor-patch"
     },
     {      
-      "description": "This configuration will group minor dev-dependencies updates and patches in a single MR.",
       "matchDepTypes": ["devDependencies"],
       "matchUpdateTypes": ["minor", "patch"],
       "groupName": "dev dependencies (non-major)",
-      "groupSlug": "dev-deps-minor-patch"
+      "groupSlug": "dev-deps-minor-patch",
+      "excludePackageNames": [
+        "@types/**",
+        "eslint", "eslint-*",
+        "storybook", "@storybook/*",
+        "vite", "@vite/*",
+        "@babel/*", "babel-*"
+      ]
     }
   ],
   "timezone": "Asia/Kolkata",
