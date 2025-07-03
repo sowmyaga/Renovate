@@ -3,55 +3,79 @@
   "extends": [
     "github>renovatebot/.github"
   ],
-  "assignees": [
-    "sowmyaga"
+  "enabledManagers": ["npm"],
+  "dependencyDashboardOSVVulnerabilitySummary": "all",
+  "packageRules": [
+    {
+      "description": "This configuration will create dedicated MR for each dependency with breaking changes",
+      "matchDepTypes": ["dependencies"],
+      "matchUpdateTypes": ["major"],
+      "groupName": null
+    },
+    {
+      "description": "This configuration will create dedicated MR for each devDependency with breaking changes",
+      "matchDepTypes": ["devDependencies"],
+      "matchUpdateTypes": ["major"],
+      "groupName": null
+    },
+    {
+      "matchDepTypes": ["devDependencies"],
+      "extends": ["group:eslint"],
+      "matchUpdateTypes": ["minor", "patch"],
+      "groupName": "eslint packages"
+    },
+    {
+      "matchDepTypes": ["devDependencies"],
+      "extends": ["group:storybook"],
+      "matchUpdateTypes": ["minor", "patch"],
+      "groupName": "storybook packages"
+    },
+    {
+      "extends": ["group:definitelyTyped"],
+      "matchUpdateTypes": ["minor", "patch"],
+      "groupName": "type definitions"
+    },
+    {
+      "matchDepTypes": ["devDependencies"],
+      "extends": ["group:vite"],
+      "matchUpdateTypes": ["minor", "patch"],
+      "groupName": "vite packages"
+    },
+    {
+      "matchDepTypes": ["devDependencies"],
+      "extends": ["group:babelMonorepo"],
+      "matchUpdateTypes": ["minor", "patch"],
+      "groupName": "babel packages"
+    },
+    {
+      "matchDepTypes": ["dependencies"],
+      "matchUpdateTypes": ["minor", "patch"],
+      "groupName": "dependencies (minor/patch)",
+      "groupSlug": "deps-minor-patch",
+      "batchSize": 5
+    },
+    {      
+      "description": "This configuration will group minor dev-dependencies updates and patches in a single MR.",
+      "matchDepTypes": ["devDependencies"],
+      "matchUpdateTypes": ["minor", "patch"],
+      "groupName": "dev dependencies (non-major)",
+      "groupSlug": "dev-deps-minor-patch",
+      "batchSize": 5
+    }
   ],
-  "semanticCommitScope": "deps",
-  "automergeType": "pr",
-  "dockerfile": {
-    "semanticCommitType": "build"
-  },
-"timezone": "Asia/Kolkata",
+  "timezone": "Asia/Kolkata",
   "rangeStrategy": "bump",
   "prHourlyLimit": 20,
-  "prConcurrentLimit": 20,
-  "baseBranches": ["main"], 
+  "prConcurrentLimit": 10,
+  "baseBranches": ["main"],
+  "branchPrefix": "renovate/",
+  "branchTopic": "{{ replace '/' '-' packageName}}-{{version}}",
+  "branchNameStrict": true,
+  "schedule": ["at any time"],
+  "minimumReleaseAge": "3 days",
   "commitMessagePrefix": "",
   "commitMessageTopic": "{{packageName}} v{{currentVersion}}",
   "prCreation": "immediate",
-  "reviewers": [ "sowmyaga"],
-    "packageRules": [
-        {
-            "description": "This configuration will create dedicated MR for each dependency with breaking changes. These MR will not be auto-merged by renovate Chimera Bot and need to be validated and merged by the selected reviewers",
-            "depTypes": ["dependencies","devDependencies"],
-            "matchPackageNames": ["/*/"],
-            "matchUpdateTypes": ["major","pin", "pinDigest", "digest", "lockFileMaintenance", "rollback", "bump", "replacement"]
-          },
-          {      
-            "description": "This configuration will group minor updates and patches in a single MR. This MR will be auto-merged by renovate Chimera Bot and do not need approval or validation by the selected reviewers",
-            "automerge": true,
-            "automergeType": "branch",
-            "automergeStrategy": "auto",
-            "depTypes": ["dependencies","devDependencies"],
-            "matchUpdateTypes": ["minor", "patch"],
-            "matchPackageNames": ["/*/"],
-            "groupName": "all non-major dependencies",
-            "groupSlug": "all-minor-patch"
-          },      
-        
-          {
-            "description": "This configuration will ensure certain crucial packages are never auto-merged, even for minor or patch updates.",
-            "automerge": false,
-            "depTypes": ["dependencies", "devDependencies"],
-            "matchPackageNames": [
-              "@reduxjs/toolkit", 
-              "typescript",
-              "babel-loader"
-            ],
-            "groupName": "critical packages",
-            "groupSlug": "critical-packages"
-          }
-
-    ]
-  }
-  
+  "rebaseWhen": "auto",
+  "reviewers": ["sowmyaga"]
+}
