@@ -20,24 +20,26 @@
     },
     {
       "matchDepTypes": ["devDependencies"],
-      "extends": ["group:eslint"],
+      "extends": ["packages:eslint"],
       "matchUpdateTypes": ["minor", "patch"],
       "groupName": "eslint packages"
     },
     {
       "matchDepTypes": ["devDependencies"],
-      "extends": ["group:storybook"],
+      "extends": ["packages:storybook"],
       "matchUpdateTypes": ["minor", "patch"],
       "groupName": "storybook packages"
     },
     {
-      "extends": ["group:definitelyTyped"],
+      "groupName": "definitelyTyped",
       "matchUpdateTypes": ["minor", "patch"],
-      "groupName": "type definitions"
+      "matchPackageNames": [
+        "@types/**"
+      ]
     },
     {
       "matchDepTypes": ["devDependencies"],
-      "extends": ["group:vite"],
+      "extends": ["packages:vite"],
       "matchUpdateTypes": ["minor", "patch"],
       "groupName": "vite packages"
     },
