@@ -96,7 +96,7 @@
       ],
       "groupName": "dependencies (minor/patch)",
       "groupSlug": "deps-minor-patch",
-      "pkgsPerGroup": 5
+      "group:pkgsPerGroup": 5
     },
     {
       "matchDepTypes": [
@@ -108,7 +108,7 @@
       ],
       "groupName": "dev dependencies (non-major)",
       "groupSlug": "dev-deps-minor-patch",
-      "pkgsPerGroup": 5,
+      "group:pkgsPerGroup": 5,
       "matchPackageNames": [
         "!@types/**",
         "!eslint",
