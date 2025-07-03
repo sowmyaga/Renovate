@@ -46,19 +46,6 @@
       "extends": ["group:babelMonorepo"],
       "matchUpdateTypes": ["minor", "patch"],
       "groupName": "babel packages"
-    },
-    {
-      "matchDepTypes": ["dependencies"],
-      "matchUpdateTypes": ["minor", "patch"],
-      "groupName": "dependencies (minor/patch)",
-      "groupSlug": "deps-minor-patch"
-    },
-    {      
-      "description": "This configuration will group minor dev-dependencies updates and patches in a single MR.",
-      "matchDepTypes": ["devDependencies"],
-      "matchUpdateTypes": ["minor", "patch"],
-      "groupName": "dev dependencies (non-major)",
-      "groupSlug": "dev-deps-minor-patch"
     }
   ],
   "timezone": "Asia/Kolkata",
