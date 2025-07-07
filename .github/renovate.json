@@ -29,7 +29,8 @@
         "devDependencies"
       ],
       "extends": [
-        "packages:eslint"
+        "packages:eslint", 
+        "packages:stylelint"
       ],
       "matchUpdateTypes": [
         "minor",
