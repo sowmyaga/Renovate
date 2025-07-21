@@ -29,7 +29,7 @@
         "devDependencies"
       ],
       "extends": [
-        "packages:eslint", 
+        "packages:eslint",
         "packages:stylelint"
       ],
       "matchUpdateTypes": [
@@ -92,7 +92,7 @@
   "rangeStrategy": "bump",
   "prHourlyLimit": 20,
   "prConcurrentLimit": 10,
-  "baseBranches": [
+  "baseBranchPatterns": [
     "main"
   ],
   "branchPrefix": "renovate/",
