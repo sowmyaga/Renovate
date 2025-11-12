@@ -13,7 +13,7 @@
     "@reduxjs/toolkit": "^2.2.3",
     "@types/webfontloader": "^1.6.38",
     "@webxr-input-profiles/motion-controllers": "^1.0.0",
-    "async-lock": "^1.2.4",
+    "async-lock": "^1.4.1",
     "attr-accept": "^2.2.5",
     "base64url": "^3.0.1",
     "buffer": "^6.0.3",
