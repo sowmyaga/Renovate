@@ -21,7 +21,7 @@
     "debounce": "^1.2.1",
     "dot-prop-immutable": "^2.1.0",
     "es6-promisify": "^7.0.0",
-    "graphiql": "^1.11.1",
+    "graphiql": "^1.11.5",
     "graphql": "^15.4.0",
     "i18next": "^19.8.4",
     "i18next-browser-languagedetector": "^6.0.1",
